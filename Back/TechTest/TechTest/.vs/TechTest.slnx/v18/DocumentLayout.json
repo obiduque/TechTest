@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TechTest\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TechTest\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-19T23:52:29.426Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
