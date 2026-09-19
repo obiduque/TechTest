@@ -1,0 +1,63 @@
+DELIMITER //
+CREATE PROCEDURE sp_consultar_tareas(
+    IN p_usuario_id INT,
+    IN p_estado VARCHAR(20),
+    IN p_ordenado BOOLEAN,
+    IN p_meta_key VARCHAR(100),   -- Nombre de la clave dentro del JSON
+    IN p_meta_value VARCHAR(255)  -- Valor esperado para esa clave
+)
+BEGIN
+    DECLARE v_query TEXT;
+    
+    -- Consulta base
+    SET v_query = 'SELECT id, titulo, estado, fecha_registro, usuario_id, metadata FROM task WHERE 1=1';
+
+    -- Filtro por Usuario (No nulo y mayor a 0)
+    IF p_usuario_id IS NOT NULL AND p_usuario_id > 0 THEN
+        SET v_query = CONCAT(v_query, ' AND usuario_id = ', p_usuario_id);
+    END IF;
+
+    -- Filtro por Estado (No nulo y no vacío)
+    IF p_estado IS NOT NULL AND TRIM(p_estado) != '' AND p_estado IN ('Pending', 'InProgress', 'Done') THEN
+        SET v_query = CONCAT(v_query, ' AND estado = ', QUOTE(p_estado));
+    END IF;
+
+    -- Filtro dinámico por Metadata JSON
+    IF p_meta_key IS NOT NULL AND TRIM(p_meta_key) != '' AND p_meta_value IS NOT NULL THEN
+        SET v_query = CONCAT(
+            v_query, 
+            ' AND JSON_UNQUOTE(JSON_EXTRACT(metadata, ', QUOTE(CONCAT('$.', TRIM(p_meta_key))), ')) = ', QUOTE(p_meta_value)
+        );
+    END IF;
+
+    -- Ordenamiento por fecha de creación
+    IF p_ordenado IS NOT NULL AND p_ordenado = TRUE THEN
+        SET v_query = CONCAT(v_query, ' ORDER BY fecha_creacion DESC');
+    END IF;
+
+    -- Preparar y ejecutar la consulta dinámica
+    SET @sql_completo = v_query;
+    PREPARE stmt FROM @sql_completo;
+    EXECUTE stmt;
+    DEALLOCATE PREPARE stmt;
+END //
+DELIMITER ;
+DELIMITER //
+CREATE PROCEDURE sp_actualizar_metadata_tarea(
+    IN p_tarea_id INT,
+    IN p_meta_key VARCHAR(100),
+    IN p_meta_value VARCHAR(255)
+)
+BEGIN
+    -- Validar que la tarea exista y los parámetros no sean nulos
+    IF p_tarea_id IS NOT NULL AND p_meta_key IS NOT NULL AND TRIM(p_meta_key) != '' THEN
+        UPDATE task
+        SET metadata = JSON_SET(
+            COALESCE(metadata, '{}'), -- Si la columna era NULL, inicializa un JSON vacío
+            CONCAT('$.', TRIM(p_meta_key)), 
+            p_meta_value
+        )
+        WHERE id = p_tarea_id;
+    END IF;
+END //
+DELIMITER ;
