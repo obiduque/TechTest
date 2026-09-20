@@ -8,7 +8,6 @@
       "applicationUrl": "http://localhost:5248",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ConnectionStrings__DefaultConnection": "Server=localhost;Port=3306;Database=enterprise;Uid=root;Pwd=obirin0912;"
       }
     },
     "https": {
@@ -18,7 +17,7 @@
       "applicationUrl": "https://localhost:7148;http://localhost:5248",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ConnectionStrings__DefaultConnection": "Server=localhost;Port=3306;Database=enterprise;Uid=root;Pwd=obirin0912;"
+        "ConnectionStrings__DefaultConnection": "Server={{}};Port={{}};Database={{}};Uid={{}};Pwd={{}};"
       }
     }
   }
