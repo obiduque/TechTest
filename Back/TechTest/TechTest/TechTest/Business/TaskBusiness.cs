@@ -12,9 +12,9 @@ namespace TechTest.Business
         {
             _taskRepository = taskRepository;
         }
-        public async Task<Response> getTasks(TaskFilter filter)
+        public async Task<Response> getTasks()
         {
-            var rsp = await _taskRepository.getTaskByFilter(filter);
+            var rsp = await _taskRepository.getAllTask();
             return new Response(0, "Consuta exitosa", rsp);
         }
         public async Task<Response> createTask(TechTest.Modelos.Task task)

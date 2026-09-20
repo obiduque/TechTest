@@ -18,6 +18,17 @@ if (string.IsNullOrEmpty(connectionString))
 builder.Services.AddDbContext<MiDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodo", policy =>
+    {
+        policy.SetIsOriginAllowed(origin => true) // Permite cualquier origen de forma dinámica
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
+
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
@@ -39,6 +50,10 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseRouting();
+
+app.UseCors("PermitirTodo");
 
 app.UseHttpsRedirection();
 

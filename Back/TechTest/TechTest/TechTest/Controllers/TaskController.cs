@@ -16,9 +16,9 @@ namespace TechTest.Controllers
             _taskBusiness = taskBusiness;
         }
         [HttpGet]
-        public async Task<ActionResult<Response>> GetTasks([FromBody] TaskFilter filter)
+        public async Task<ActionResult<Response>> GetTasks()
         {
-            return Ok(await _taskBusiness.getTasks(filter));
+            return Ok(await _taskBusiness.getTasks());
         }
         [HttpPost]
         public async Task<ActionResult<Response>> PostTasks([FromBody] TechTest.Modelos.Task task)

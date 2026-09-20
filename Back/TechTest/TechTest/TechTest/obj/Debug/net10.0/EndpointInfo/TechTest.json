@@ -6,9 +6,6 @@
   },
   "servers": [
     {
-      "url": "https://localhost:7148"
-    },
-    {
       "url": "http://localhost:5248"
     }
   ],
@@ -18,26 +15,6 @@
         "tags": [
           "Tasks"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TaskFilter"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TaskFilter"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TaskFilter"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "OK",
@@ -297,44 +274,6 @@
               {
                 "$ref": "#/components/schemas/User"
               }
-            ]
-          }
-        }
-      },
-      "TaskFilter": {
-        "type": "object",
-        "properties": {
-          "idUser": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "null",
-              "integer",
-              "string"
-            ],
-            "format": "int32"
-          },
-          "state": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "order": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "metaKey": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "metaData": {
-            "type": [
-              "null",
-              "string"
             ]
           }
         }

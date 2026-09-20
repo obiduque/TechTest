@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\business\\taskbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\business\\taskbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\respository\\interface\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\respository\\interface\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\respository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\respository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\respository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\respository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\business\\interface\\itaskbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\business\\interface\\itaskbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|d:\\documentos\\github\\techtest\\back\\techtest\\techtest\\techtest\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C11573D2-AE12-47F5-B856-00F2601B4A78}|TechTest\\TechTest.csproj|solutionrelative:techtest\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
@@ -14,17 +38,95 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Respository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "TechTest\\Respository\\UserRepository.cs",
+              "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Respository\\UserRepository.cs",
+              "RelativeToolTip": "TechTest\\Respository\\UserRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T11:11:27.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TaskRepository.cs",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Respository\\TaskRepository.cs",
+              "RelativeDocumentMoniker": "TechTest\\Respository\\TaskRepository.cs",
+              "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Respository\\TaskRepository.cs",
+              "RelativeToolTip": "TechTest\\Respository\\TaskRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAnwBkAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T11:10:14.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ITaskRepository.cs",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Respository\\Interface\\ITaskRepository.cs",
+              "RelativeDocumentMoniker": "TechTest\\Respository\\Interface\\ITaskRepository.cs",
+              "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Respository\\Interface\\ITaskRepository.cs",
+              "RelativeToolTip": "TechTest\\Respository\\Interface\\ITaskRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T11:09:56.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TaskBusiness.cs",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Business\\TaskBusiness.cs",
+              "RelativeDocumentMoniker": "TechTest\\Business\\TaskBusiness.cs",
+              "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Business\\TaskBusiness.cs",
+              "RelativeToolTip": "TechTest\\Business\\TaskBusiness.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T11:09:35.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ITaskBusiness.cs",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Business\\Interface\\ITaskBusiness.cs",
+              "RelativeDocumentMoniker": "TechTest\\Business\\Interface\\ITaskBusiness.cs",
+              "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Business\\Interface\\ITaskBusiness.cs",
+              "RelativeToolTip": "TechTest\\Business\\Interface\\ITaskBusiness.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T11:09:06.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TaskController.cs",
+              "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Controllers\\TaskController.cs",
+              "RelativeDocumentMoniker": "TechTest\\Controllers\\TaskController.cs",
+              "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Controllers\\TaskController.cs",
+              "RelativeToolTip": "TechTest\\Controllers\\TaskController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T09:57:04.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "TechTest\\Properties\\launchSettings.json",
               "ToolTip": "D:\\Documentos\\GitHub\\TechTest\\Back\\TechTest\\TechTest\\TechTest\\Properties\\launchSettings.json",
               "RelativeToolTip": "TechTest\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-09-19T23:52:29.426Z",
               "EditorCaption": ""
