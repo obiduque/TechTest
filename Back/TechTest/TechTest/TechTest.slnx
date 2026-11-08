@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TechTest/TechTest.csproj" />
+  <Project Path="UnitTestTechTest/UnitTestTechTest.csproj" Id="e4144502-5b37-4547-a0b6-1cc9d49dca05" />
+</Solution>

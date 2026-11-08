@@ -13,9 +13,9 @@ public partial class Task
 
     public DateTime FechaCreacion { get; set; }
 
-    public string? Metadata { get; set; }
-
     public int? UsuarioId { get; set; }
+
+    public string? MetadataTarea { get; set; }
 
     public virtual User? Usuario { get; set; }
 }

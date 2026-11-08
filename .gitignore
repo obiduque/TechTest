@@ -1,0 +1,35 @@
+# Visual Studio / IDEs
+.vs/
+*.suo
+*.user
+*.userosscache
+.sln.docstates
+
+# Build Results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Tt]emp/
+[Tt]mp/
+_ReSharper.*/
+*.rs.user
+
+# Test Results
+[Tt]est[Rr]esults/
+*.trx
+coverage*.xml
+coveragereport/
+
+# Package management
+[Pp]ackages/
+*.nupkg
+*.snupkg
+
+# Published output
+[Pp]ublish/
+[Pp]ublished/
+
+# Environment / Secrets (Opcional pero recomendado)
+.env
+appsettings.Development.json

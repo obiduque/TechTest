@@ -6,6 +6,9 @@
   },
   "servers": [
     {
+      "url": "https://localhost:7148"
+    },
+    {
       "url": "http://localhost:5248"
     }
   ],
@@ -251,7 +254,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "metadata": {
+          "metadataTarea": {
             "type": [
               "null",
               "string"
