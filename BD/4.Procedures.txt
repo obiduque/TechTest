@@ -52,8 +52,8 @@ BEGIN
     -- Validar que la tarea exista y los parámetros no sean nulos
     IF p_tarea_id IS NOT NULL AND p_meta_key IS NOT NULL AND TRIM(p_meta_key) != '' THEN
         UPDATE task
-        SET metadata = JSON_SET(
-            COALESCE(metadata, '{}'), -- Si la columna era NULL, inicializa un JSON vacío
+        SET metadata_tarea = JSON_SET(
+            COALESCE(metadata_tarea, '{}'), -- Si la columna era NULL, inicializa un JSON vacío
             CONCAT('$.', TRIM(p_meta_key)), 
             p_meta_value
         )
