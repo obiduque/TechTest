@@ -15,6 +15,7 @@ export class TblBootstrapComponent implements OnInit {
   public message= signal<string>("");
   public showCreate = false;
   private fb = inject(FormBuilder);
+  public anyError= false;
   userForm!: FormGroup;
 
   constructor(private userService: UserService){
@@ -40,12 +41,20 @@ export class TblBootstrapComponent implements OnInit {
   }
 
   saveUser(){
+    if(this.userForm.invalid)
+      return;
     const user: User = new User();
     user.nombre = this.userForm.get("nombre").value;
     user.correo = this.userForm.get("email").value;
     this.userService.guardarUsuario(user).subscribe({
-      next: (rta)=> (this.message.set(rta.message)),
-      error: (err)=> (this.message.set(err))
+      next: (rta)=> {
+        this.message.set(rta.message);
+        this.anyError = rta.status != 0;
+      },
+      error: (err)=> {
+        this.message.set(err);
+        this.anyError = true;
+      }
     });
   }
 
@@ -56,5 +65,12 @@ export class TblBootstrapComponent implements OnInit {
       this.message.set('');
       this.userForm.reset();
     }
+  }
+
+  validateForm(prop:string):string{
+    if(this.userForm.get(prop).hasError("required"))
+      return "Este campo es requerido";
+    if(this.userForm.get(prop).hasError("email"))
+      return "Formato de texto no valido para este campo";
   }
 }

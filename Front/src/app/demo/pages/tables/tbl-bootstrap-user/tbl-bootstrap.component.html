@@ -28,17 +28,18 @@
     </app-card>
     <button type="button" class="btn btn-primary" (click)="showCreateBox(true)">Crear Usuario</button>
   </div>
-  <div *ngIf="showCreate" class="d-flex justify-content-center align-items-center vh-100">
+  <div *ngIf="showCreate" class="d-flex justify-content-center align-items-top">
     <div class="card p-4 shadow">
       <div class="d-flex flex-column gap-3">
         <form [formGroup]="userForm">
-          <h3>Crear Usuario</h3>
+          <h3 class="text-info font-bold">Crear Usuario</h3>
           <div>
             <div class="form-group row">
               <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nombre</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control form-control-sm" id="colFormLabelSm" 
                 formControlName="nombre" placeholder="Nombre" />
+                <label class="text-danger"> {{ validateForm("nombre") }}</label>
               </div>
             </div>
             <div class="form-group row">
@@ -46,15 +47,17 @@
               <div class="col-sm-9">
                 <input type="email" class="form-control" id="colFormLabel" 
                 formControlName="email" placeholder="Email" />
+                <label class="text-danger"> {{ validateForm("email") }}</label>
               </div>
             </div>
           </div>
           <div class="d-flex justify-content-center align-items-center">
             <button type="button" class="btn btn-primary" (click)="saveUser()"
-            [disabled]="message()!==''">Crear</button>
-            <button type="button" class="btn btn-primary" (click)="showCreateBox(false)">Volver</button>
+            [disabled]="message()!=='' || userForm.invalid">Crear</button>
+            <button type="button" class="btn btn-secondary" (click)="showCreateBox(false)">Volver</button>
           </div>
-          <h5>{{message()}}</h5>
+          <h5 *ngIf="!anyError" class="pt-2 text-success">{{message()}}</h5>
+          <h5 *ngIf="anyError" class="pt-2 text-warning">{{message()}}</h5>
         </form>
       </div>
     </div>

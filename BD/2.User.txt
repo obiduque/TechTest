@@ -1,0 +1,4 @@
+CREATE USER 'techtest'@'localhost' IDENTIFIED BY 'TechTest';
+GRANT ALL PRIVILEGES ON enterprise.* TO 'techtest'@'localhost';
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON enterprise.* TO 'techtest'@'localhost';

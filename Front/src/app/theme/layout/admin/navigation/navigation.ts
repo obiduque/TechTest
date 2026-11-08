@@ -16,18 +16,10 @@ export interface NavigationItem {
 export const NavigationItems: NavigationItem[] = [
   {
     id: 'forms',
-    title: 'Forms & Tables',
+    title: 'Tables',
     type: 'group',
     icon: 'icon-group',
     children: [
-      {
-        id: 'forms-element',
-        title: 'Form Elements',
-        type: 'item',
-        url: '/forms',
-        classes: 'nav-item',
-        icon: 'feather icon-file-text'
-      },
       {
         id: 'tables',
         title: 'Tables',

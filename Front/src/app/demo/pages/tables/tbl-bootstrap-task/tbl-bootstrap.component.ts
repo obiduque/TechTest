@@ -20,6 +20,8 @@ export class TblBootstrapComponent implements OnInit {
   public users: User[] = [];
   public message= signal<string>("");
   public showCreate = false;
+  public anyError = false;
+  public filtro = "Todos";
   private fb = inject(FormBuilder);
   taskForm!: FormGroup;
   filterForm!: FormGroup;
@@ -58,35 +60,40 @@ export class TblBootstrapComponent implements OnInit {
 
   getTasks(){
     this.taskService.obtenerTareas().subscribe({
-      next: (datos)=> {this.task.set(datos);this.tempTask=datos;},
+      next: (datos)=> {this.tempTask=datos;this.filtrarTareas();},
       error: (err)=> (console.error(err))
     });
   }
 
-  filtrarTareas(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    const valor = inputElement.value;
-
-    this.task.set(valor === 'Todos' ? this.tempTask : 
-      this.tempTask.filter(tarea => tarea.estado === valor)
+  filtrarTareas(): void {
+    this.task.set(this.filtro === 'Todos' ? this.tempTask : 
+      this.tempTask.filter(tarea => tarea.estado === this.filtro)
     );
   }
 
   updateTaskState(id:number){
     this.taskService.actualizarEstado(id).subscribe({
-      next: (rta)=> (this.getTasks()),
+      next: (rta)=> {this.getTasks();this.filtrarTareas();},
       error: (err)=> (console.error(err))
     });
   }
 
   saveTask(){
+    if (this.taskForm.invalid)
+      return;
     const task: Task = new Task();
     task.titulo = this.taskForm.get("titulo").value;
-    task.usuarioId = this.users.find(user=>user.nombre===this.taskForm.get("usuario").value).id;
+    task.usuarioId = this.taskForm.get("usuario").value;
     task.estado = 'Pending';
     this.taskService.guardarTarea(task).subscribe({
-      next: (rta)=> (this.message.set(rta.message)),
-      error: (err)=> (this.message.set(err))
+      next: (rta)=> {
+        this.message.set(rta.message);
+        this.anyError = rta.status != 0;
+      },
+      error: (err)=> {
+        this.message.set(err);
+        this.anyError = true;
+      }
     });
   }
 
@@ -99,5 +106,12 @@ export class TblBootstrapComponent implements OnInit {
     }else{
       this.initTaskForm();
     }
+  }
+
+  validateForm(prop:string):string{
+    if(this.taskForm.get(prop).hasError("required"))
+      return "Este campo es requerido";
+    if(this.taskForm.get(prop).hasError("min"))
+      return "Este campo es requerido";
   }
 }
