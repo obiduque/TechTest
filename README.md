@@ -4,6 +4,16 @@ Project that manage tasks and users
 
 1.Como primer paso se deben ejecutar los comando de base datos que se encuentran en la carpeta BD. Ya estan numerados y deben ser ejecutados en orden ascendente (desde el 1 hasta el 4)
 NOTA: Para mi caso especifico cree un nuevo usuario y tambien un nuevo esquema.
+Adjunto ejemplos de consumo de los sp:
+
+CALL `enterprise`.`sp_consultar_tareas`(<{IN p_usuario_id INT}>, <{IN p_estado VARCHAR(20)}>, <{IN p_ordenado BOOLEAN}>, <{IN p_meta_key VARCHAR(100)}>, <{-- Nombre de la clave dentro del JSON
+    IN p_meta_value VARCHAR(255)  -- Valor esperado para esa clave}>);
+CALL `enterprise`.`sp_consultar_tareas`(null, null, null, 'jefe', '1');
+
+CALL `enterprise`.`sp_actualizar_metadata_tarea`(<{IN p_tarea_id INT}>, <{IN p_meta_key VARCHAR(100)}>, <{IN p_meta_value VARCHAR(255)}>);
+CALL `enterprise`.`sp_actualizar_metadata_tarea`(1, 'canal', 'baja');
+
+El procedimiento de actualizar metadata también permite la inserción de nuevas etiquetas, es decir, si existe solo "prioridad" y se llama al procedimiento con la etiqueta "horario" este añadirá esta nueva propiedad.
 
 2.En la carpeta Back, se encuentra la lógica referente al procesamiento de datos. Es importante setear los datos de la cadena de conexion que se encuentra definida en el archivo launchsettings.json dentro de la carpeta Properties
 "Server=localhost;Port=3306;Database=enterprise;Uid=techtest;Pwd=TechTest;"
