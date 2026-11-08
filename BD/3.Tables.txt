@@ -1,7 +1,8 @@
 CREATE TABLE users (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
-    correo VARCHAR(100) UNIQUE
+    correo VARCHAR(100) UNIQUE,
+    INDEX idx_users_nombre (nombre)
 );
 CREATE TABLE task (
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -11,5 +12,5 @@ CREATE TABLE task (
     usuario_id INT,
 	metadata_tarea JSON,
     FOREIGN KEY (usuario_id) REFERENCES users(id) ON DELETE CASCADE,
-    INDEX idx_usuario(usuario_id)
+    INDEX idx_task_fecha (fecha_creacion)
 );

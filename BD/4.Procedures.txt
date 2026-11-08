@@ -1,5 +1,5 @@
 DELIMITER //
-CREATE PROCEDURE sp_consultar_tareas(
+CREATE PROCEDURE enterprise.sp_consultar_tareas(
     IN p_usuario_id INT,
     IN p_estado VARCHAR(20),
     IN p_ordenado BOOLEAN,
@@ -10,7 +10,7 @@ BEGIN
     DECLARE v_query TEXT;
     
     -- Consulta base
-    SET v_query = 'SELECT id, titulo, estado, fecha_registro, usuario_id, metadata FROM task WHERE 1=1';
+    SET v_query = 'SELECT id, titulo, estado, fecha_creacion, usuario_id, metadata_tarea FROM task WHERE 1=1';
 
     -- Filtro por Usuario (No nulo y mayor a 0)
     IF p_usuario_id IS NOT NULL AND p_usuario_id > 0 THEN
@@ -43,7 +43,7 @@ BEGIN
 END //
 DELIMITER ;
 DELIMITER //
-CREATE PROCEDURE sp_actualizar_metadata_tarea(
+CREATE PROCEDURE enterprise.sp_actualizar_metadata_tarea(
     IN p_tarea_id INT,
     IN p_meta_key VARCHAR(100),
     IN p_meta_value VARCHAR(255)
