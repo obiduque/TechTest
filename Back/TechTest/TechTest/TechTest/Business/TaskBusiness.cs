@@ -19,8 +19,8 @@ namespace TechTest.Business
         }
         public async Task<Response> createTask(TechTest.Modelos.Task task)
         {
-            await _taskRepository.createTask(task);
-            return new Response(0,"Tarea creada exitosamente", null);
+            var res = await _taskRepository.createTask(task);
+            return new Response(res ? 0 : 1, res ? "Tarea creada exitosamente" : "Error al crear la tarea", null);
         }
         public async Task<Response> updateTaskState(int idTask)
         {

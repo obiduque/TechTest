@@ -49,13 +49,37 @@ namespace UnitTestTechTest.Business
 
             _taskRepositoryMock
                 .Setup(r => r.createTask(newTask))
-                .Returns(Task.CompletedTask);
+                .Returns(Task.FromResult(true));
 
             var result = await _taskBusiness.createTask(newTask);
 
             result.Should().NotBeNull();
             result.Status.Should().Be(0);
             result.Message.Should().Be("Tarea creada exitosamente");
+            result.Data.Should().BeNull();
+
+            _taskRepositoryMock.Verify(r => r.createTask(newTask), Times.Once);
+        }
+
+        [Fact]
+        public async Task CreateTask_Error()
+        {
+            var newTask = new TechTest.Modelos.Task
+            {
+                Id = 1,
+                Titulo = "Nueva Tarea",
+                Estado = "Pending"
+            };
+
+            _taskRepositoryMock
+                .Setup(r => r.createTask(newTask))
+                .Returns(Task.FromResult(false));
+
+            var result = await _taskBusiness.createTask(newTask);
+
+            result.Should().NotBeNull();
+            result.Status.Should().Be(1);
+            result.Message.Should().Be("Error al crear la tarea");
             result.Data.Should().BeNull();
 
             _taskRepositoryMock.Verify(r => r.createTask(newTask), Times.Once);

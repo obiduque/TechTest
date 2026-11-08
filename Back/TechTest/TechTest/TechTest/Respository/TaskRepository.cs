@@ -9,15 +9,43 @@ namespace TechTest.Respository
 {
     public class TaskRepository(MiDbContext context) : ITaskRepository
     {
-        public async Task createTask(Modelos.Task task)
+        public async Task<bool> createTask(TechTest.Modelos.Task task)
         {
-            await context.AddAsync(task);
-            await context.SaveChangesAsync();
+            try
+            {
+                await context.AddAsync(task);
+                await context.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine("No se pudo crear la tarea por una restricción en BD para el ID: {Id}", task.Id);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error inesperado al crear la tarea. "+ex.Message);
+                return false;
+            }
         }
-        public async Task updateTask(Modelos.Task task)
+
+        public async Task updateTask(TechTest.Modelos.Task task)
         {
-            context.Update(task);
-            await context.SaveChangesAsync();
+            try
+            {
+                context.Update(task);
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                Console.WriteLine("Conflicto de concurrencia al actualizar la tarea ID: {Id}", task.Id);
+                return;
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine("Error de actualización en BD para la tarea ID: {Id} "+ex.Message, task.Id);
+                return;
+            }
         }
         public async Task<Modelos.Task?> getTask(int idTask)
         {

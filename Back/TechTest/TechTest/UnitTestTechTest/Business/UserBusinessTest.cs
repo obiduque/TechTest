@@ -45,13 +45,32 @@ namespace UnitTestTechTest.Business
 
             _userRepositoryMock
                 .Setup(r => r.createAsync(newUser))
-                .Returns(Task.CompletedTask);
+                .Returns(Task.FromResult(true));
 
             var result = await _userBusiness.createUser(newUser);
 
             result.Should().NotBeNull();
             result.Status.Should().Be(0);
             result.Message.Should().Be("Usuario creado exitosamente");
+            result.Data.Should().BeNull();
+
+            _userRepositoryMock.Verify(r => r.createAsync(newUser), Times.Once);
+        }
+
+        [Fact]
+        public async Task CreateUser_Error()
+        {
+            var newUser = new TechTest.Modelos.User { Id = 1, Nombre = "Carlos Ruiz" };
+
+            _userRepositoryMock
+                .Setup(r => r.createAsync(newUser))
+                .Returns(Task.FromResult(false));
+
+            var result = await _userBusiness.createUser(newUser);
+
+            result.Should().NotBeNull();
+            result.Status.Should().Be(1);
+            result.Message.Should().Be("Error al crear el usuario");
             result.Data.Should().BeNull();
 
             _userRepositoryMock.Verify(r => r.createAsync(newUser), Times.Once);

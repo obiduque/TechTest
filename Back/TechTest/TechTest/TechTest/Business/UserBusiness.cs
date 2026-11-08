@@ -19,8 +19,8 @@ namespace TechTest.Business
         }
         public async Task<Response> createUser(User user)
         {
-            await _userRepository.createAsync(user);
-            return new Response(0,"Usuario creado exitosamente", null);
+            var res = await _userRepository.createAsync(user);
+            return new Response(res ? 0 : 1, res ? "Usuario creado exitosamente" : "Error al crear el usuario", null);
         }
     }
 }
